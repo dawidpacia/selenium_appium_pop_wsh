@@ -1,10 +1,5 @@
 import os
 from appium import webdriver
-from appium.webdriver.common.mobileby import MobileBy
-
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
 from pages.home_page import HomePage
 
 app_name = "calculator.apk"
@@ -21,24 +16,24 @@ home_page = HomePage(driver)
 
 
 def test_add():
-    home_page.add_digits()
+    home_page.add_digits(1, 2)
     result = home_page.get_result()
     assert result == "3"
 
 
 def test_sub():
-    home_page.sub_digits()
+    home_page.sub_digits(1, 2)
     result = home_page.get_result()
     assert result == "−1"
 
 
 def test_mul():
-    home_page.mul_digits()
+    home_page.mul_digits(1, 2)
     result = home_page.get_result()
     assert result == "2"
 
 
 def test_div():
-    home_page.div_digits()
+    home_page.div_digits(1, 2)
     result = home_page.get_result()
     assert result == "0.5"
