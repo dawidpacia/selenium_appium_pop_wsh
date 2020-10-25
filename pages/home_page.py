@@ -1,4 +1,7 @@
+from appium.webdriver.common.touch_action import TouchAction
+
 from pages.base_page import BasePage
+
 
 from appium.webdriver.common.mobileby import MobileBy
 
@@ -46,3 +49,6 @@ class HomePage(BasePage):
     def digit_locator(self, value):
         selector = (MobileBy.ID, f"digit_{value}")
         return selector
+
+    def open_expert_panel(self):
+        TouchAction(self.driver).tap(None, 1000, 1500).perform()
