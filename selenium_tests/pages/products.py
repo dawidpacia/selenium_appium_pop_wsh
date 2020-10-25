@@ -1,10 +1,10 @@
-from selenium.webdriver import ActionChains
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium_tests.webdriver import ActionChains
+from selenium_tests.webdriver.common.by import By
+from selenium_tests.webdriver.support.wait import WebDriverWait
+from selenium_tests.webdriver.support import expected_conditions as EC
 
 
-from pages.base import BasePage
+from selenium_tests.pages import BasePage
 
 
 class ProductsPage(BasePage):

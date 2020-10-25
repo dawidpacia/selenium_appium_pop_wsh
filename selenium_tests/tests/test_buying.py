@@ -1,6 +1,6 @@
-from pages.home import HomePage
-from pages.products import ProductsPage
-from pages.cart_summary import CartSummaryPage
+from selenium_tests.pages import HomePage
+from selenium_tests.pages.products import ProductsPage
+from selenium_tests.pages.cart_summary import CartSummaryPage
 
 
 def test_buy_different_products(driver):

@@ -1,9 +1,9 @@
 import pytest
-from selenium import webdriver
+from selenium_tests import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 
-from pages.contact_us import ContactUsPage
-from pages.home import HomePage
+from selenium_tests.pages import ContactUsPage
+from selenium_tests.pages import HomePage
 
 
 @pytest.fixture()

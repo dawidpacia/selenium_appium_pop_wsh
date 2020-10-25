@@ -1,6 +1,6 @@
-from selenium.webdriver.common.by import By
+from selenium_tests.webdriver.common.by import By
 
-from pages.base import BasePage
+from selenium_tests.pages import BasePage
 
 
 class CartSummaryPage(BasePage):

@@ -1,9 +1,9 @@
-from selenium import webdriver
+from selenium_tests import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium_tests.webdriver.common.by import By
+from selenium_tests.webdriver.common.action_chains import ActionChains
+from selenium_tests.webdriver.support.wait import WebDriverWait
+from selenium_tests.webdriver.support import expected_conditions as EC
 
 
 def test_printed_summer_buy(driver):

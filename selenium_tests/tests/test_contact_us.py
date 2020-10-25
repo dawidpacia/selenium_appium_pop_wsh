@@ -1,5 +1,5 @@
-from pages.home import HomePage
-from pages.contact_us import ContactUsPage
+from selenium_tests.pages import HomePage
+from selenium_tests.pages import ContactUsPage
 
 
 class Tests:

@@ -1,4 +1,4 @@
-from selenium.webdriver import Chrome
+from selenium_tests.webdriver import Chrome
 
 
 class BasePage:
