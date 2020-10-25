@@ -17,6 +17,8 @@ class HomePage(BasePage):
     multiply_selector = (MobileBy.ACCESSIBILITY_ID, "multiply")
     divide_selector = (MobileBy.ACCESSIBILITY_ID, "divide")
     result_selector = (MobileBy.ID, "result_final")
+    arrow_panel_selector = (MobileBy.ID, "arrow")
+    logarithm_selector = (MobileBy.ACCESSIBILITY_ID, "logarithm")
 
     def add_digits(self, val_1, val_2):
         self.driver.find_element(*self.digit_locator(val_1)).click()
@@ -42,6 +44,14 @@ class HomePage(BasePage):
         self.driver.find_element(*self.digit_locator(val_2)).click()
         self.driver.find_element(*self.equals_selector).click()
 
+    def calculate_log(self):
+        self.open_expert_panel()
+        self.driver.find_element(*self.logarithm_selector).click()
+        self.close_expert_panel()
+        self.driver.find_element(*self.digit_locator(1)).click()
+        self.driver.find_element(*self.digit_locator(0)).click()
+        self.driver.find_element(*self.equals_selector).click()
+
     def get_result(self):
         result = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.result_selector)).text
         return result
@@ -52,3 +62,9 @@ class HomePage(BasePage):
 
     def open_expert_panel(self):
         TouchAction(self.driver).tap(None, 1000, 1500).perform()
+
+    def close_expert_panel(self):
+        self.driver.find_element(*self.arrow_panel_selector).click()
+
+    def wait_until_panel_is_hidden(self):
+        WebDriverWait(self.driver, 10).until(EC.invisibility_of_element_located(self.arrow_panel_selector))
