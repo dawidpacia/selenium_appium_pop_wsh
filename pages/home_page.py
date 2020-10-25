@@ -17,8 +17,11 @@ class HomePage(BasePage):
     multiply_selector = (MobileBy.ACCESSIBILITY_ID, "multiply")
     divide_selector = (MobileBy.ACCESSIBILITY_ID, "divide")
     result_selector = (MobileBy.ID, "result_final")
+    result_preview_selector = (MobileBy.ID, "result_preview")
     arrow_panel_selector = (MobileBy.ID, "arrow")
     logarithm_selector = (MobileBy.ACCESSIBILITY_ID, "logarithm")
+    more_options_selector = (MobileBy.ACCESSIBILITY_ID, "More options")
+    history_selector = (MobileBy.ID, "//*[contains(., 'History'")
 
     def add_digits(self, val_1, val_2):
         self.driver.find_element(*self.digit_locator(val_1)).click()
@@ -56,6 +59,11 @@ class HomePage(BasePage):
         result = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.result_selector)).text
         return result
 
+    def get_result_preview(self):
+        result = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.result_preview_selector)).text
+        return result
+
+
     def digit_locator(self, value):
         selector = (MobileBy.ID, f"digit_{value}")
         return selector
@@ -68,3 +76,7 @@ class HomePage(BasePage):
 
     def wait_until_panel_is_hidden(self):
         WebDriverWait(self.driver, 10).until(EC.invisibility_of_element_located(self.arrow_panel_selector))
+
+    def navigate_to_history(self):
+        self.driver.find_element(*self.more_options_selector).click()
+        el = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.history_selector))
